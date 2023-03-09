@@ -1,0 +1,30 @@
+﻿<Application x:Class="Admin.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Admin"
+             xmlns:View="clr-namespace:Admin.View"
+             xmlns:ViewModel="clr-namespace:Admin.ViewModel"
+             StartupUri="View/MainWindow.xaml">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <DataTemplate DataType="{x:Type ViewModel:MainVM}">
+                <local:MainWindow></local:MainWindow>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:AddVM}">
+                <View:AddView></View:AddView>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:DeleteVM}">
+                <View:DeleteView></View:DeleteView>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type ViewModel:EditVM}">
+                <View:EditView></View:EditView>
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
