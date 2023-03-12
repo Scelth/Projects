@@ -17,7 +17,6 @@ namespace Admin.ViewModel
     {
         private readonly INavigateService _navigateService;
         private readonly IProjectManageService _projectManageService;
-        //public string Username { get; set; }
 
         public MenuVM(INavigateService navigateService, IProjectManageService projectManageService)
         {
