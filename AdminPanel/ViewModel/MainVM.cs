@@ -77,7 +77,7 @@ namespace Admin.ViewModel
             get => selectedPage;
             set
             {
-                Set(ref selectedPage, value); // Функция Set() автоматически вызывает PropertyChanged.
+                Set(ref selectedPage, value);
             }
         }
 
@@ -86,16 +86,11 @@ namespace Admin.ViewModel
             CurrentViewModel = App.container.GetInstance(message.VMType) as ViewModelBase;
         }
 
-        public MainVM(IMessenger messenger) // constructor
+        public MainVM(IMessenger messenger)
         {
             CurrentViewModel = App.container.GetInstance<MenuVM>(); // Ставлю окно по умолчанию 
 
             _messenger = messenger;
-
-            // Register - регистрация класса на сообщение какого-то типа 
-            // параметр this - говорит о том, кого именно регистрировать.
-            // this - это объект MainViewModel созданный SimpleInjector-ом в App.Container
-            // ReceiveMessage - Функция, которая запускается после принятия сообщения и принимает в параметрах это сообщение
             _messenger.Register<NavigationMessage>(this, ReceiveMessage);
         }
     }
