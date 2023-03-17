@@ -9,5 +9,10 @@ namespace Admin.Model
     public class CategoryModel
     {
         public string Name { get; set; }
+        
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
