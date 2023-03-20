@@ -71,12 +71,26 @@ namespace Admin.ViewModel.ProjectVM
             get => _selectedCategoryName;
             set
             {
-                Set(ref _selectedCategoryName, value);
+                if (Set(ref _selectedCategoryName, value))
+                {
+                    SearchCommand.RaiseCanExecuteChanged();
+                }
             }
         }
 
+        //private RelayCommand _searchCommand;
         public RelayCommand SearchCommand
         {
+            //get
+            //{
+            //    return _searchCommand ?? (_searchCommand = new RelayCommand(
+            //        () =>
+            //        {
+            //            SearchResult = new ObservableCollection<ProjectModel>(Data.Projects.Where(p => p.Category == SelectedCategoryName));
+            //        },
+            //        () => !string.IsNullOrEmpty(SelectedCategoryName)));
+            //}
+            
             get => new(() =>
             {
 
