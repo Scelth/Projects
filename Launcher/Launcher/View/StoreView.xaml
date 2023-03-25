@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="Launcher.View.StoreView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Launcher.View"
+             xmlns:VM="clr-namespace:Launcher.ViewModel"
+             mc:Ignorable="d"
+             Height="600" Width="1200"
+             Name="HomeControl">
+
+    <UserControl.Resources>
+        <ControlTemplate x:Key="TopNenuButtons" TargetType="Button">
+            <Grid Name="Btn" Height="40px" Margin="20 0 0 0">
+                <Border>
+                    <Grid>
+                        <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="23" VerticalAlignment="Center">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground" Value="#FF9D9999"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}" 
+                                                     Value="true">
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </DataTrigger>
+
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource 
+                                            Mode=FindAncestor, 
+                                            AncestorType={x:Type Button}}, 
+                                            Path = IsPressed}" Value="true">
+                                            <Setter Property="Foreground" Value="#FF9D9999"/>
+                                        </DataTrigger>
+
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource 
+                                            Mode=FindAncestor, 
+                                            AncestorType={x:Type Button}}, 
+                                            Path = IsFocused}" Value="true">
+                                            <Setter Property="Foreground" Value="White"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+
+                        <Label Content="{TemplateBinding Content}"
+                           Background="Transparent" Margin="-3 0 0 0"
+                           VerticalAlignment="Center" FontSize="23" FontWeight="Bold">
+                            <Label.Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground" Value="White"/>
+                                    <Setter Property="Visibility" Value="Hidden"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource 
+                                            Mode=FindAncestor, 
+                                            AncestorType={x:Type Button}}, 
+                                            Path = IsFocused}" Value="true">
+                                            <DataTrigger.Setters>
+                                                <Setter Property="Effect">
+                                                    <Setter.Value>
+                                                        <BlurEffect Radius="25"/>
+                                                    </Setter.Value>
+                                                </Setter>
+
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger.Setters>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Label.Style>
+                        </Label>
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+
+
+        <ControlTemplate x:Key="SlideMenu" TargetType="Button">
+            <Grid Name="Btn" Height="45">
+                <Border>
+                    <StackPanel Orientation="Horizontal">
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="Maroon">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.41*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Background="#FF303031" Margin="0 5 0 0">
+            <StackPanel.Resources>
+                <Style TargetType="ItemsControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding SelectedCategoryName}" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Resources>
+
+            <ComboBox Width="150" 
+                      VerticalContentAlignment="Center" 
+                      FontSize="23"
+                      ItemsSource="{Binding Data.Categories}"
+                      SelectedValue="{Binding SelectedCategoryName, Mode=TwoWay}" 
+                      DisplayMemberPath="Name"/>
+
+            <TextBox Width="200" 
+                     VerticalContentAlignment="Center" 
+                     FontSize="23"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Column="0" Grid.Row="1">
+            <ItemsControl Margin="5" ItemsSource="{Binding SearchResult}" VerticalAlignment="Top">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Poster}"
+                                   Height="50"
+                                   Width="30"/>
+                            
+                            <Button Content="{Binding Name}"
+                                    Template="{StaticResource ResourceKey=TopNenuButtons}"
+                                    Height="50"
+                                    VerticalAlignment="Top"
+                                    Command="{Binding Path=DataContext.InfoCommand, ElementName=HomeControl}"
+                                    CommandParameter="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <ContentControl Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Content="{Binding Info}" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>
