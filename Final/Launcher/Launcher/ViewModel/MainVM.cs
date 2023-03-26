@@ -40,26 +40,6 @@ namespace Launcher.ViewModel
             }
         }
 
-        //private bool _isLoggedIn = false;
-        //public bool IsLoggedIn
-        //{
-        //    get => _isLoggedIn;
-        //    set
-        //    {
-        //        Set(ref _isLoggedIn, value);
-        //        if (Check.IsLoggedIn)
-        //        {
-        //            LogInButtonContent = User.Username;
-        //        }
-
-        //        else
-        //        {
-        //            LogInButtonContent = "Log in";
-        //        }
-        //    }
-        //}
-
-
         public ViewModelBase CurrentViewModel
         {
             get => selectedPage;
