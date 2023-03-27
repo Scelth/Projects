@@ -177,7 +177,7 @@
                       DisplayMemberPath="Name"
                       Style="{DynamicResource MaterialDesignOutlinedComboBox}"
                       Background="#2D6183"
-                      Foreground="WhiteSmoke"/>
+                      Foreground="#FF9D9999"/>
 
             <TextBox Width="200" 
                      VerticalContentAlignment="Center" 
