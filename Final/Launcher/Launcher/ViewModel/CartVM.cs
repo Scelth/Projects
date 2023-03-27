@@ -58,7 +58,7 @@ namespace Launcher.ViewModel
 
         public void UpdateTotal()
         {
-            Total = Data.Projects.Sum(x => Int32.Parse(x.Price));
+            Total += Data.Projects.Sum(x => Int32.Parse(x.Price));
         }
 
         public RelayCommand PayCommand
