@@ -32,12 +32,16 @@
                Foreground="WhiteSmoke"/>
 
         <StackPanel Margin="10" VerticalAlignment="Center">
-            <ComboBox Margin="20" 
+                <ComboBox Margin="20" 
                       Height="60" 
                       Style="{DynamicResource MaterialDesignOutlinedComboBox}"
                       mD:HintAssist.Hint="Choose a payment method"
                       Background="#050B13"
-                      Foreground="WhiteSmoke"/>
+                      Foreground="WhiteSmoke">
+                <ComboBoxItem Content="Visa"/>
+                <ComboBoxItem Content="Mastercard"/>
+                <ComboBoxItem Content="American Express"/>
+            </ComboBox>
             
             <TextBox Margin="20" 
                      Height="60" 
