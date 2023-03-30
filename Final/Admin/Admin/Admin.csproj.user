@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\CategoryView\AddCategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ProjectView\AddProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CategoryView\DeleteCategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\CategoryView\EditCategoryView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ProjectView\EditProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ProjectView\InfoProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ProjectView\SearchProjectView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\CategoryView\AddCategoryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ProjectView\AddProjectView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CategoryView\DeleteCategoryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\CategoryView\EditCategoryView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ProjectView\EditProjectView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ProjectView\InfoProjectView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ProjectView\SearchProjectView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
