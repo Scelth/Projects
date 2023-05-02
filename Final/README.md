@@ -2,7 +2,7 @@
     1. Admin panel
     2. User panel. 
 
-    The program will be E commerce, that is, the purchase and sale of goods. 
+    The program will be E-Commerce, that is, the purchase and sale of goods. 
 
     The administrator can add, delete, and edit categories and products.
     The user can buy products. Implement the authorization logic.
