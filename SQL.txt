@@ -1,0 +1,24 @@
+use WhiteBoard
+
+create table Users
+(
+	ID int identity(1, 1) primary key,
+	[Email] nvarchar(max) not null,
+	[Username] nvarchar(15) not null,
+	[Password] nvarchar(max) not null
+)
+
+create table Pictures
+(
+	ID int identity(1, 1) primary key,
+	[UserID] int foreign key references Users(ID),
+	[Name] nvarchar(max) not null,
+	[Date] datetime not null,
+	[PicturePath] nvarchar(max) not null
+)
+
+create table [Keep]
+(
+	ID int identity(1, 1) primary key,
+	[UserID] int foreign key references Users(ID)
+)
