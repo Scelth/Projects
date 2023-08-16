@@ -74,7 +74,7 @@ namespace WhiteBoard.ViewModel
         {
             get => new(() =>
             {
-                MailAddress fromAddress = new("adam.magomed1459@gmail.com", Name);
+                MailAddress fromAddress = new("your email", Name);
                 MailAddress toAddress = new(Email);
 
                 MailMessage mailMessage = new(fromAddress, toAddress);
@@ -90,7 +90,7 @@ namespace WhiteBoard.ViewModel
 
                     using (SmtpClient smtpClient = new("smtp.gmail.com", 587))
                     {
-                        smtpClient.Credentials = new NetworkCredential("adam.magomed1459@gmail.com", "xwirgbuyziarbmgu");
+                        smtpClient.Credentials = new NetworkCredential("your email", "your password");
                         smtpClient.EnableSsl = true;
 
                         try
