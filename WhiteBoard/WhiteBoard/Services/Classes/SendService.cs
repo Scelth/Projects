@@ -49,7 +49,7 @@ namespace WhiteBoard.Services.Classes
 
         public void SendToEmail(string Email, string Subject, string Name, string Message)
         {
-            MailAddress fromAddress = new("adam.magomed1459@gmail.com", Name);
+            MailAddress fromAddress = new("Your email", Name);
             MailAddress toAddress = new(Email);
 
             MailMessage mailMessage = new(fromAddress, toAddress);
@@ -63,7 +63,7 @@ namespace WhiteBoard.Services.Classes
             mailMessage.Body = $@"<html><body><h1>{Message}</h1><img src='cid:image.png'></img></body></html>";
 
             using SmtpClient smtpClient = new("smtp.gmail.com", 587);
-            smtpClient.Credentials = new NetworkCredential("adam.magomed1459@gmail.com", "yygugbuwervlmnav");
+            smtpClient.Credentials = new NetworkCredential("Your email", "Your password key");
             smtpClient.EnableSsl = true;
 
             try
