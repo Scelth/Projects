@@ -1,22 +1,24 @@
 ﻿#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-
-const std::string RESOURCES_PATH = "Resources/";
+#include "Constants.h"
+#include "Game.h"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(330, 400), "Contra");
+	using namespace Contra;
+
+	sf::RenderWindow window(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGTH), "Contra");
+
+	Game game;
+
+	InitGame(game, window);
 
 	while (window.isOpen())
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+		HandleWindowEvents(game, window);
 
 		window.clear();
+		DrawGame(game, window);
 		window.display();
 	}
 
